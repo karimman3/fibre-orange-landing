@@ -1,297 +1,504 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عروض الفايبر أورنج | تخفيضات الموظفين وقدماء المحاربين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #ff7900;
+            --dark-orange: #d96400;
+            --secondary-color: #000;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+            --card-border-radius: 20px;
+        }
 
-  <meta charset="utf-8">
-  <title>La Fibre Orange — باقات فيبر (مُحسّن للهاتف)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#10151e">
-  <meta name="description" content="تطبيق ويب أحادي الملف، سريع وسهل للهاتف لطلب اشتراك La Fibre Orange. اختيار الباقة، خصم الموظفين/قدماء المحاربين، تفاصيل العنوان، تواصل واتساب/اتصال فورًا.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="La Fibre Orange — سهل للهاتف">
-  <meta property="og:description" content="اختر سرعتك وراسلنا على واتساب بنقرة واحدة.">
-  <meta property="og:locale" content="ar_MA">
-  <style>
-    :root{
-      --bg:#0e131c; --card:#151b24; --ring:#263142; --text:#e9eef7; --muted:#a7b1c2; --brand:#ff7900; --accent:#37c6ff; --ok:#22c55e;
-      --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.45); --max:680px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;background:linear-gradient(160deg,#0b0f17,#121a27 58%,#0b0f17);color:var(--text);font:15.5px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    a{color:var(--accent);text-decoration:none}
-    .wrap{max-width:var(--max);margin:auto;padding:14px 14px 84px}
-    header{display:flex;gap:12px;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:10px}
-    /* شعار Orange */
-    .logo{width:36px;height:36px;border-radius:8px;overflow:hidden;display:block}
-    .kpis{display:flex;gap:6px;flex-wrap:wrap}
-    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#101827;border:1px solid var(--ring);color:#cbd5e1;font-size:12px}
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--secondary-color); overflow-x: hidden; }
 
-    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .hero{margin:12px 0;padding:14px;display:grid;gap:10px}
-    h1{margin:0 0 6px;font-size:20px}
-    .hint{font-size:13px;color:var(--muted)}
+        /* الهيدر */
+        header {
+            background: var(--white);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .step{margin:10px 0;padding:12px}
-    .step h2{margin:0 0 8px;font-size:16px}
+        .logo { font-size: 1.5rem; font-weight: 900; color: var(--primary-color); display: flex; align-items: center; gap: 5px; }
+        .logo span { color: black; }
+        
+        .contact-header { text-align: left; }
+        .contact-header .name { font-size: 0.9rem; color: #666; font-weight: bold; display: block; }
+        .contact-header a { text-decoration: none; color: var(--secondary-color); font-weight: 900; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
 
-    /* خيارات الباقات (كبيرة للإبهام) */
-    .plans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    @media (max-width:540px){.plans{grid-template-columns:1fr}}
-    .plan{position:relative;padding:12px;border-radius:14px;border:2px solid var(--ring);background:#0f1722}
-    .plan input{position:absolute;inset:0;opacity:0}
-    .plan .top{display:flex;justify-content:space-between;align-items:center}
-    .speed{font-size:22px;font-weight:900;color:#061014;background:#8ae3ff; padding:4px 10px;border-radius:10px}
-    .price{display:flex;align-items:baseline;gap:8px;font-size:22px;font-weight:900}
-    .per{font-size:12px;color:var(--muted)}
-    .old{font-size:12px;color:var(--muted);text-decoration:line-through;display:none}
-    .plan small{color:#ff3714}
-    .plan.active{border-color:#69d2ff;box-shadow:0 0 0 4px rgba(55,198,255,.15)}
+        /* البانر */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 50px;
+            background: linear-gradient(135deg, #111 0%, #333 100%);
+            color: white;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero span { color: var(--primary-color); }
 
-    /* خصومات */
-    .seg{display:flex;gap:8px}
-    .seg label{flex:1;text-align:center;padding:10px;border-radius:12px;border:1px solid var(--ring);background:#0f1722;cursor:pointer}
-    .seg input{display:none}
-    .seg input:checked+label{outline:2px solid #3bc7ff}
+        /* ============================= */
+        /* تصميم قسم المستشار الجديد */
+        /* ============================= */
+        .consultant-section {
+            padding: 40px 20px;
+            background: var(--white);
+            text-align: center;
+        }
+        .consultant-card {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 30px;
+            background: #fdfdfd;
+            border-radius: var(--card-border-radius);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid #eee;
+        }
+        .consultant-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(255, 121, 0, 0.4);
+        }
+        .consultant-info h2 {
+            color: var(--secondary-color);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+        .consultant-info p {
+            color: #555;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .btn-call {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: var(--dark-orange); 
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: background 0.3s;
+            font-size: 1.1rem;
+        }
+        .btn-call:hover {
+            background: #ff7900;
+        }
+        @media (min-width: 768px) {
+            .consultant-card {
+                flex-direction: row-reverse; /* الصورة على اليمين والنص على اليسار في الوضع الأفقي */
+                text-align: right;
+                justify-content: space-around;
+            }
+        }
+        /* ============================= */
 
-    /* نموذج بسيط */
-    .form{display:grid;gap:8px}
-    .form input,.form textarea{background:#0f1722;border:1px solid var(--ring);border-radius:12px;padding:12px;color:var(--text);font-size:16px}
+        /* أزرار التحكم في التخفيضات */
+        .pricing-controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px auto;
+            max-width: 900px;
+            padding: 0 10px;
+        }
 
-    /* CTA عائم للهاتف */
-    .sticky{position:fixed;inset-inline:0;bottom:0;display:flex;gap:8px;padding:10px;background:#0e131c;border-top:1px solid var(--ring);box-shadow:0 -10px 24px rgba(0,0,0,.25);z-index:40}
-    .btn{flex:1;display:inline-block;text-align:center;padding:14px 12px;border-radius:12px;font-weight:700;border:1px solid var(--ring);background:#0f1722;color:#fff}
-    .btn.primary{background:linear-gradient(180deg,#ff8e36,#ff7900);color:#111}
-    .btn.wa{background:linear-gradient(180deg,#35d06a,#1aa552)}
-    .btn:disabled{opacity:.6}
+        .filter-btn {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .sum{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
-    .sum .num{font-size:22px;font-weight:900}
+        .filter-btn:hover { border-color: var(--primary-color); }
+        
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 121, 0, 0.3);
+        }
 
-    footer{margin-top:18px;color:#9fb0c7;text-align:center;font-size:12px}
-  </style>
-   <!-- كود Adsterra Popunder --
-<script type='text/javascript' src='//pl28120926.effectivegatecpm.com/91/f2/c5/91f2c593df8c17c804c277b1ee125f44.js'></script>
+        .discount-badge {
+            font-size: 0.8rem;
+            background: #d90429;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-right: 5px;
+        }
+
+        /* شبكة البطاقات */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--card-border-radius);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        
+        /* تمييز البطاقات الكبيرة */
+        .card.premium { border-top-color: #000; background: linear-gradient(to bottom, #fff, #fafafa); }
+
+        /* شريط التخفيض */
+        .promo-tag {
+            position: absolute;
+            top: 15px;
+            left: -35px;
+            background: #d90429;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(-45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+        .card.has-discount .promo-tag { opacity: 1; }
+
+        .speed-badge { font-size: 3rem; font-weight: 900; color: var(--secondary-color); line-height: 1; margin-bottom: 10px; }
+        .speed-unit { font-size: 1rem; color: var(--primary-color); }
+
+        .price-container { margin: 15px 0; height: 80px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.1rem;
+            display: none;
+        }
+        
+        .current-price { font-size: 2.8rem; font-weight: 800; color: var(--primary-color); }
+        .currency { font-size: 1rem; color: #333; font-weight: normal; }
+
+        .features { list-style: none; text-align: right; margin-bottom: 25px; }
+        .features li { margin-bottom: 12px; font-size: 0.9rem; color: #555; display: flex; align-items: center; gap: 8px;}
+        .features i { color: var(--primary-color); width: 20px; text-align: center;}
+
+        .btn-order {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .btn-order:hover { background: var(--primary-color); }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; left: 30px;
+            background: #25d366; color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999; text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        .category-info {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #555;
+            font-weight: bold;
+            min-height: 25px;
+        }
+        
+        /* تحسينات للهاتف */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .pricing-grid { padding-bottom: 100px; }
+        }
+    </style>
 </head>
 <body>
-          
-        <!-- SVG شعار Orange (مضمَّن) -->
-        <svg class="logo" viewBox="0 0 100 100" role="img" aria-label="Orange logo">
-          <rect width="100" height="100" fill="#ff7900"/>
-          <text x="10" y="75" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">orange</text>
-        </svg>
-        <div>
-          <div style="font-weight:900">La Fibre Orange</div>
-          <div class="kpis">
-            <span class="badge"> تركيب فابور من 50 ميجا</span>
-            <span class="badge">روتور فابور</span>
-            <span class="badge">متخلاص حتى بداية شهر مقبل</span>
-          </div>
+
+    <header>
+        <div class="logo"><i class="fas fa-wifi"></i> Fibre<span>Orange</span></div>
+        <div class="contact-header">
+            <span class="name">المستشار: كريم (Karim)</span>
+            <a href="tel:0660201206">0660.201.206 <i class="fas fa-phone-flip"></i></a>
         </div>
-      </div>
-  <script type='text/javascript' src='//pl28120896.effectivegatecpm.com/f4/26/4e/f4264e81c642faec9aa7e6ff38c3d50e.js'></script>
-      <a id="telTop" href="tel:0660201206" class="badge" aria-label="اتصال">اتصل:   0660201206 </a>
-<script type='text/javascript' src='//p28120926.effectivgatecpm.com/91/f2/c5/91f2c593df8c17c804c277b1ee125f44.js'></script>
     </header>
 
-    <section class="card hero">
-      <h1>اختر الباقة وابعث لنا على واتساب</h1>
-      
-    </section>
-    <!-- الخطوة 1: الخصم -->
-    <section class="card step">
-      <h2>2) هل لديك خصم؟</h2>
-      <div class="seg">
-        <input id="d0" name="disc" type="radio" value="0" checked><label for="d0">بدون خصم</label>
-        <input id="d25" name="disc" type="radio" value="0.25"><label for="d25">%25  الموظفون الدولة</label>
-        <input id="d50" name="disc" type="radio" value="0.5"><label for="d50">%50 قدماء المحاربين</label>
-      </div>
-    </section>
-
-
-    <!-- الخطوة 2: الباقة -->
-    <section class="card step" id="stepPlans">
-      <h2>1) اختر السرعة</h2>
-      <div class="plans" id="plans"></div>
-      <div class="hint">الأسعار شهرية.</div>
-    </section>
-
-
-
-    <!-- الخطوة 3: بيانات مختصرة -->
-    <section class="card step">
-      <h2>3) بيانات التواصل</h2>
-      <div class="form">
-        <input id="fName" placeholder="الاسم الكامل">
-        <input id="fCity" placeholder="المدينة / الحي">
-        <textarea id="fAddr" rows="2" placeholder="العنوان (اختياري)"></textarea>
-      </div>
-    </section>
-
-    <!-- مُلخص -->
-    <section class="card step">
-      <h2>الملخص</h2>
-      <div class="sum">
-        <div>
-          <div class="hint">الخطة المختارة</div>
-          <div id="sumPlan">—</div>
+    <div class="hero">
+        <div data-aos="fade-down">
+            <h1>أقوى عروض الألياف البصرية</h1>
+            <p>اختر الفئة التي تنتمي إليها للحصول على سعرك المخفض</p>
         </div>
-        <div class="num" id="sumPrice" aria-live="polite">— درهم/شهر</div>
-      </div>
+    </div>
+
+    <section class="consultant-section" data-aos="zoom-in">
+        <div class="consultant-card">
+            <img src="https://i.top4top.io/p_3621xfwcd1.png" alt="المستشار التجاري كريم" class="consultant-img">
+            <div class="consultant-info">
+                <h2>تحدث مع مستشارنا التجاري</h2>
+                <p>الاسم: **كريم (Karim)**</p>
+                <p>للاستفسار والحصول على العروض الخاصة والتخفيضات</p>
+                <a href="tel:0660201206" class="btn-call"><i class="fas fa-phone-flip"></i> اتصل الآن: 0660.201.206</a>
+            </div>
+        </div>
     </section>
+    <div class="pricing-controls" data-aos="fade-up">
+        <button class="filter-btn active" onclick="setCategory('standard')">
+            <i class="fas fa-users"></i> العموم
+        </button>
+        
+        <button class="filter-btn" onclick="setCategory('employees')">
+            <span class="discount-badge">-25%</span>
+            <i class="fas fa-briefcase"></i>
+            موظفي الدولة
+        </button>
+        
+        <button class="filter-btn" onclick="setCategory('veterans')">
+            <span class="discount-badge">-50%</span>
+            <i class="fas fa-medal"></i>
+            قدماء المحاربين
+        </button>
+    </div>
 
-    <section class="card step">
-      <h2>الوثائق (اختياري للهاتف)</h2>
-      <div class="form">
-        <input id="docFront" type="file" accept="image/*,application/pdf" capture="environment" aria-label="بطاقة التعريف — الأمام">
-        <input id="docBack"  type="file" accept="image/*,application/pdf" capture="environment" aria-label="بطاقة التعريف — الخلف">
-        <input id="docM6"    type="file" accept="image/*,application/pdf" capture="environment" aria-label="بطاقة محمد السادس">
-      </div>
-      <div class="hint">لن تُرفع ملفاتك من خلال هذا التطبيق. أرفقها يدويًا داخل واتساب بعد فتح المحادثة.</div>
-    </section>
+    <div class="category-info" id="catInfo">الأسعار العامة لجميع الزبائن</div>
 
-    <section class="card step">
-      <details>
-        <summary>الشروط باختصار</summary>
-        <ul>
-          <li>مدة التعهد: 12 شهرًا.</li>
-          <li>التركيب عادة بين 24 و48 ساعة بعد تأكيد العنوان والوثائق.</li>
-          <li>طرق الدفع: تحويل/بنك، دفع عبر الهاتف، تسهيلات (عند التوفر)، وخدمات Orange.</li>
-        </ul>
-      </details>
-    </section>
+    <div class="pricing-grid">
+        
+        <div class="card" id="card-20" data-aos="fade-up">
+            <div class="promo-tag">تخفيض</div>
+            <div class="speed-badge">20<span class="speed-unit">Mbps</span></div>
+            <div class="price-container">
+                <div class="old-price" id="old-20">249</div>
+                <div class="current-price"><span id="price-20">249</span> <span class="currency">درهم</span></div>
+            </div>
+            <ul class="features">
+                <li><i class="fas fa-wifi"></i> <b>جهاز راوتر مجاني</b></li>
+                <li><i class="fas fa-clock"></i> 2 ساعات مكالمات</li>
+                <li><i class="fas fa-phone-alt"></i> لا محدود نحو الثابت</li>
+                <li><i class="fas fa-tools"></i> مصاريف التركيب 99 درهم</li>
+            </ul>
+            <a href="#" class="btn-order" onclick="orderNow(20)">اطلب الآن</a>
+        </div>
 
-    <footer>غير تابع رسميًا. جميع العلامات تخص أصحابها.</footer>
-  </div>
+        <div class="card" id="card-50" data-aos="fade-up" data-aos-delay="100">
+            <div class="promo-tag">تخفيض</div>
+            <div class="speed-badge">50<span class="speed-unit">Mbps</span></div>
+            <div class="price-container">
+                <div class="old-price" id="old-50">299</div>
+                <div class="current-price"><span id="price-50">299</span> <span class="currency">درهم</span></div>
+            </div>
+            <ul class="features">
+                <li><i class="fas fa-wifi"></i> <b>جهاز راوتر مجاني</b></li>
+                <li><i class="fas fa-clock"></i> 3 ساعات مكالمات</li>
+                <li><i class="fas fa-phone-alt"></i> لا محدود نحو الثابت</li>
+                <li><i class="fas fa-check-circle"></i> <b>التركيب مجاني 100%</b></li>
+            </ul>
+            <a href="#" class="btn-order" onclick="orderNow(50)">اطلب الآن</a>
+        </div>
 
-  <!-- CTA سفلي للهاتف -->
-  <div class="sticky">
-    <button id="btnWA" class="btn wa" disabled>واتساب</button>
-    <a id="btnCall" class="btn" href="tel:0660201206">اتصال</a>
-    <button id="btnChoose" class="btn primary">اختر باقة</button>
-  </div>
+        <div class="card" id="card-100" data-aos="fade-up" data-aos-delay="200" style="border-color: #333;">
+            <div class="promo-tag">تخفيض</div>
+            <div class="speed-badge">100<span class="speed-unit">Mbps</span></div>
+            <div class="price-container">
+                <div class="old-price" id="old-100">349</div>
+                <div class="current-price"><span id="price-100">349</span> <span class="currency">درهم</span></div>
+            </div>
+            <ul class="features">
+                <li><i class="fas fa-wifi"></i> <b>جهاز راوتر مجاني</b></li>
+                <li><i class="fas fa-clock"></i> 4 ساعات مكالمات</li>
+                <li><i class="fas fa-phone-alt"></i> لا محدود نحو الثابت</li>
+                <li><i class="fas fa-check-circle"></i> <b>التركيب مجاني 100%</b></li>
+            </ul>
+            <a href="#" class="btn-order" onclick="orderNow(100)">اطلب الآن</a>
+        </div>
 
-<script>
-(() => {
-  'use strict';
-  // إعدادات أساسية
-  const PHONE_WA = '212660201206';
-  const PLANS = [
-    {speed:20, price:249, color:'#ffd28b'},
-    {speed:50, price:299, color:'#ffe47d'},
-    {speed:100, price:349, color:'#9be081'},
-    {speed:200, price:449, color:'#7ee6ef'}
-  ];
+        <div class="card" id="card-200" data-aos="fade-up" data-aos-delay="300">
+            <div class="promo-tag">تخفيض</div>
+            <div class="speed-badge">200<span class="speed-unit">Mbps</span></div>
+            <div class="price-container">
+                <div class="old-price" id="old-200">449</div>
+                <div class="current-price"><span id="price-200">449</span> <span class="currency">درهم</span></div>
+            </div>
+            <ul class="features">
+                <li><i class="fas fa-wifi"></i> <b>جهاز راوتر مجاني</b></li>
+                <li><i class="fas fa-clock"></i> 6 ساعات مكالمات</li>
+                <li><i class="fas fa-phone-alt"></i> لا محدود نحو الثابت</li>
+                <li><i class="fas fa-check-circle"></i> <b>التركيب مجاني 100%</b></li>
+            </ul>
+            <a href="#" class="btn-order" onclick="orderNow(200)">اطلب الآن</a>
+        </div>
 
-  const el = sel => document.querySelector(sel);
-  const plansWrap = el('#plans');
-  const btnWA = el('#btnWA');
-  const btnChoose = el('#btnChoose');
-  const sumPlan = el('#sumPlan');
-  const sumPrice = el('#sumPrice');
+        <div class="card premium" id="card-500" data-aos="fade-up" data-aos-delay="400">
+            <div class="promo-tag">تخفيض</div>
+            <div class="speed-badge">500<span class="speed-unit">Mbps</span></div>
+            <div class="price-container">
+                <div class="old-price" id="old-500">749</div>
+                <div class="current-price"><span id="price-500">749</span> <span class="currency">درهم</span></div>
+            </div>
+            <ul class="features">
+                <li><i class="fas fa-wifi"></i> <b>جهاز راوتر عالي السرعة مجاني</b></li>
+                <li><i class="fas fa-clock"></i> <b>10 ساعات مكالمات</b></li>
+                <li><i class="fas fa-phone-alt"></i> لا محدود نحو الثابت</li>
+                <li><i class="fas fa-check-circle"></i> <b>التركيب مجاني 100%</b></li>
+            </ul>
+            <a href="#" class="btn-order" onclick="orderNow(500)">اطلب الآن</a>
+        </div>
 
-  function currentDiscount(){
-    const r = document.querySelector('input[name="disc"]:checked');
-    return r ? Number(r.value) : 0;
-  }
+        <div class="card premium" id="card-1000" data-aos="fade-up" data-aos-delay="500">
+            <div class="promo-tag">تخفيض</div>
+            <div class="speed-badge">1000<span class="speed-unit">Mbps</span></div>
+            <div class="price-container">
+                <div class="old-price" id="old-1000">949</div>
+                <div class="current-price"><span id="price-1000">949</span> <span class="currency">درهم</span></div>
+            </div>
+            <ul class="features">
+                <li><i class="fas fa-wifi"></i> <b>جهاز راوتر Pro مجاني</b></li>
+                <li><i class="fas fa-clock"></i> <b>20 ساعة مكالمات</b></li>
+                <li><i class="fas fa-phone-alt"></i> لا محدود نحو الثابت</li>
+                <li><i class="fas fa-check-circle"></i> <b>التركيب مجاني 100%</b></li>
+            </ul>
+            <a href="#" class="btn-order" onclick="orderNow(1000)">اطلب الآن</a>
+        </div>
 
-  // بناء كروت الباقات (كبيرة اللمس) — وضعنا السعر الأساسي كـ data-base
-  function card(p){
-    const after = Math.round(p.price * (1 - currentDiscount()));
-    return `
-    <label class="plan" data-speed="${p.speed}" data-base="${p.price}" style="border-color:#314259;background:#0f1722">
-      <input type="radio" name="plan" value="${p.speed}" aria-label="${p.speed} ميغا">
-      <div class="top">
-        <div class="speed" style="background:${p.color}">${p.speed} <small>Mb</small></div>
-        <div class="price"><span class="cur">${after}</span><small>درهم/شهر</small><span class="old"></span></div>
-      </div>
-    </label>`;
-  }
+    </div>
 
-  // رسم أولي
-  plansWrap.innerHTML = PLANS.map(card).join('');
+    <a href="https://wa.me/212660201206" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-  // تحديث أسعار البطاقات عند تغيير الخصم
-  function updateCards(){
-    const disc = currentDiscount();
-    document.querySelectorAll('.plan').forEach(card => {
-      const base = Number(card.dataset.base);
-      const after = Math.round(base * (1 - disc));
-      const cur = card.querySelector('.cur');
-      const old = card.querySelector('.old');
-      cur.textContent = after;
-      if (disc > 0){
-        old.textContent = base;
-        old.style.display = 'inline-block';
-      } else {
-        old.textContent = '';
-        old.style.display = 'none';
-      }
-    });
-  }
+    <footer style="background: #222; color: #fff; text-align: center; padding: 20px;">
+        <p>للطلب والاستفسار تواصل مع كريم: <strong style="color:var(--primary-color)">0660201206</strong></p>
+    </footer>
 
-  function selectedPlan(){
-    const r = document.querySelector('input[name="plan"]:checked');
-    if(!r) return null;
-    const sp = Number(r.value);
-    return PLANS.find(p=>p.speed===sp);
-  }
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
 
-  function updateSummary(){
-    const p = selectedPlan();
-    const disc = currentDiscount();
-    if(!p){ sumPlan.textContent='—'; sumPrice.textContent='— درهم/شهر'; btnWA.disabled=true; return; }
-    const after = Math.round(p.price*(1-disc));
-    sumPlan.textContent = `${p.speed} Mb`;
-    sumPrice.textContent = `${after} درهم/شهر`;
-    btnWA.disabled=false;
-  }
+        // قاعدة البيانات (تم حساب أسعار 500 و 1000 بناءً على النسب المئوية)
+        const pricingData = {
+            '20': { standard: 249, employees: 186, veterans: 124 }, // الأسعار من الصورة
+            '50': { standard: 299, employees: 225, veterans: 149 }, // الأسعار من الصورة
+            '100': { standard: 349, employees: 261, veterans: 174 }, // الأسعار من الصورة
+            '200': { standard: 449, employees: 336, veterans: 224 }, // الأسعار من الصورة
+            // الحسابات التقريبية للتخفيضات للعروض العليا (749*0.75=561.75 / 749*0.5=374.5)
+            '500': { standard: 749, employees: 561, veterans: 374 }, 
+            // الحسابات التقريبية للتخفيضات للعروض العليا (949*0.75=711.75 / 949*0.5=474.5)
+            '1000': { standard: 949, employees: 711, veterans: 474 } 
+        };
 
-  plansWrap.addEventListener('change', e=>{
-    if(e.target.name==='plan'){
-      document.querySelectorAll('.plan').forEach(n=>n.classList.remove('active'));
-      e.target.closest('.plan').classList.add('active');
-      updateSummary();
-    }
-  });
+        let currentCategory = 'standard';
+        let categoryName = 'العرض العادي';
 
-  document.querySelectorAll('input[name="disc"]').forEach(n=> n.addEventListener('change', ()=>{
-    updateCards();
-    updateSummary();
-  }));
+        function setCategory(category) {
+            currentCategory = category;
+            
+            // تحديث الأزرار
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
 
-  // زر "اختر باقة" يركز على أول باقة إذا لم يختر
-  btnChoose.addEventListener('click', ()=>{
-    const r = document.querySelector('input[name="plan"]:checked') || document.querySelector('input[name="plan"]');
-    if(r){ r.checked = true; r.dispatchEvent(new Event('change', {bubbles:true})); document.getElementById('stepPlans').scrollIntoView({behavior:'smooth'}); }
-  });
+            updateUI();
+        }
 
-  // بناء رسالة واتساب سريعة
-  function waText(){
-    const p = selectedPlan();
-    const disc = currentDiscount();
-    const price = p ? Math.round(p.price*(1-disc)) : '-';
-    const name = el('#fName').value ? `\nالاسم: ${el('#fName').value}` : '';
-    const city = el('#fCity').value ? `\nالمدينة/الحي: ${el('#fCity').value}` : '';
-    const addr = el('#fAddr').value ? `\nالعنوان: ${el('#fAddr').value}` : '';
-    const plan = p ? `${p.speed}Mb — ${price} درهم/شهر` : 'أريد معرفة الباقات المتاحة';
-    return encodeURIComponent(`السلام عليكم، أود الاشتراك في La Fibre Orange\nالخطة: ${plan}${name}${city}${addr}\n(التزام 12 شهر — تركيب 24–48 ساعة — الدفع: بنك/هاتف/تسهيلات/Orange)`);
-  }
+        function updateUI() {
+            const infoText = document.getElementById('catInfo');
+            
+            if (currentCategory === 'standard') {
+                infoText.innerText = "الأسعار العامة لجميع الزبائن";
+                categoryName = "العرض العادي";
+            } else if (currentCategory === 'employees') {
+                infoText.innerText = "تخفيض (25%) خاص بأسرة التعليم، الأمن الوطني، القوات المساعدة، والوقاية المدنية";
+                categoryName = "تخفيض الموظفين (-25%)";
+            } else {
+                infoText.innerText = "تخفيض (50%) خاص بقدماء المحاربين وأبناء الشهداء";
+                categoryName = "تخفيض قدماء المحاربين (-50%)";
+            }
 
-  btnWA.addEventListener('click', ()=>{
-    window.open(`https://wa.me/${PHONE_WA}?text=${waText()}`, '_blank');
-  });
+            // تحديث جميع البطاقات
+            for (const [speed, prices] of Object.entries(pricingData)) {
+                const priceElement = document.getElementById(`price-${speed}`);
+                const oldPriceElement = document.getElementById(`old-${speed}`);
+                const card = document.getElementById(`card-${speed}`);
+                const newPrice = prices[currentCategory];
 
-  // روابط أعلى وأسفل
-  el('#telTop').href = 'tel:0660201206';
-  el('#btnCall').href = 'tel:0660201206';
+                // تأثير الاختفاء والظهور للسعر
+                priceElement.style.opacity = 0;
+                setTimeout(() => {
+                    priceElement.innerText = newPrice;
+                    priceElement.style.opacity = 1;
+                }, 200);
 
-  // تأكد من أن الأسعار على الكروت تعكس الخصم الحالي عند التحميل
-  updateCards();
-})();
-</script>
+                // إظهار السعر القديم عند التخفيض
+                if (currentCategory !== 'standard') {
+                    oldPriceElement.style.display = 'block';
+                    oldPriceElement.innerText = prices.standard;
+                    card.classList.add('has-discount');
+                } else {
+                    oldPriceElement.style.display = 'none';
+                    card.classList.remove('has-discount');
+                }
+            }
+        }
+
+        function orderNow(speed) {
+            const price = document.getElementById(`price-${speed}`).innerText;
+            const message = `سلام كريم، أنا مهتم بعرض الفايبر *${speed} ميجا* بسعر *${price} درهم* (${categoryName}).`;
+            const url = `https://wa.me/212660201206?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
+
 
 
